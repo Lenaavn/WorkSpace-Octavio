@@ -6,14 +6,14 @@ import { CharactersService } from '@app/services/characters.service';
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.css'
 })
-export class CharactersComponent implements OnInit{
-
+export class CharactersComponent implements OnInit {
+ character = "";
   constructor(
     public characterService: CharactersService
-  ){}
+  ) { }
 
   ngOnInit(): void {
-      console.log(this.characterService.findCharacterById(1));
+    this.characterService.findCharacterById(5).subscribe(data => this.character);
   }
 
 }
